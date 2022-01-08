@@ -12,7 +12,7 @@ List<ProductReview> list = new List<ProductReview>()
             new ProductReview() { ProductID = 6, UserID = 27, Rating = 7, Review = "GOOD" },
             new ProductReview() { ProductID = 7, UserID = 28, Rating = 6.8, Review = "AVERAGE" },
             new ProductReview() { ProductID = 8, UserID = 29, Rating = 6.5, Review = "AVERAGE" },
-            new ProductReview() { ProductID = 9, UserID = 30, Rating = 6, Review = "AVERAGE" },
+            new ProductReview() { ProductID = 8, UserID = 30, Rating = 6, Review = "AVERAGE" },
             new ProductReview() { ProductID = 10, UserID = 31, Rating = 5.5, Review = "AVERAGE" },
             new ProductReview() { ProductID = 11, UserID = 32, Rating = 5, Review = "BAD" },
             new ProductReview() { ProductID = 12, UserID = 33, Rating = 4, Review = "BAD" },
@@ -26,8 +26,8 @@ List<ProductReview> list = new List<ProductReview>()
             new ProductReview() { ProductID = 20, UserID = 41, Rating = 5.5, Review = "AVERAGE" },
             new ProductReview() { ProductID = 21, UserID = 42, Rating = 5, Review = "BAD" },
             new ProductReview() { ProductID = 22, UserID = 43, Rating = 4, Review = "BAD" },
-            new ProductReview() { ProductID = 23, UserID = 44, Rating = 3, Review = "BAD" },
-            new ProductReview() { ProductID = 24, UserID = 45, Rating = 2, Review = "BAD" },
+            new ProductReview() { ProductID = 25, UserID = 44, Rating = 3, Review = "BAD" },
+            new ProductReview() { ProductID = 25, UserID = 45, Rating = 2, Review = "BAD" },
             new ProductReview() { ProductID = 25, UserID = 46, Rating = 7.5, Review = "GOOD" },
 };
 /*foreach (var result in list)
@@ -37,4 +37,5 @@ List<ProductReview> list = new List<ProductReview>()
 
 Management management = new Management();
 //management.TopRecords(list);
-management.Retrive(list);
+//management.Retrive(list);
+management.Count(list);
