@@ -38,4 +38,5 @@ List<ProductReview> list = new List<ProductReview>()
 Management management = new Management();
 //management.TopRecords(list);
 //management.Retrive(list);
-management.Count(list);
+//management.Count(list);
+management.RetrieveProductIDAndReview(list);
