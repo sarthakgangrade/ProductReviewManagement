@@ -19,5 +19,16 @@ namespace productRewiewManagement
                 Console.WriteLine("PRODUCT_ID-" + r.ProductID + "  " + "USER_ID-" + r.UserID + "  " + "RATING-" + r.Rating + "  " + "REVIEW-" + r.Review);
             }
         }
+        public void Retrive(List<ProductReview> productlist)
+        {
+            var record = (from ProductReview in productlist
+                          where ProductReview.ProductID == 1 || ProductReview.ProductID == 4 || ProductReview.ProductID == 9
+                          && ProductReview.Rating > 3
+                          select ProductReview);
+            foreach (var r in record)
+            {
+                Console.WriteLine("PRODUCT_ID-" + r.ProductID + "  " + "USER_ID-" + r.UserID + "  " + "RATING-" + r.Rating + "  " + "REVIEW-" + r.Review);
+            }
+        }
     }
 }
