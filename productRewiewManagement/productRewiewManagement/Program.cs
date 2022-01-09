@@ -39,4 +39,5 @@ Management management = new Management();
 //management.TopRecords(list);
 //management.Retrive(list);
 //management.Count(list);
-management.RetrieveProductIDAndReview(list);
+//management.RetrieveProductIDAndReview(list);
+management.Skip(list);
