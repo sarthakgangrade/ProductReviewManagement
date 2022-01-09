@@ -43,6 +43,19 @@ namespace productRewiewManagement
 
         }
 
+        public void RetrieveProductIDAndReview(List<ProductReview> list)
+        {
+            
+            var p= from product in list
+                    select new { product.ProductID, product.Review };
+            foreach (var element in p)
+            {
+                Console.WriteLine("ProductId : " + element.ProductID  + "    Review : " + element.Review);
+                
+            }
+        }
 
+
+        
     }
 }
