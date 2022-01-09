@@ -55,7 +55,18 @@ namespace productRewiewManagement
             }
         }
 
+        public void Skip(List<ProductReview> list)
+        {
 
-        
+            var p = (from product in list
+                    select product).Skip(5);
+            foreach (var element in p)
+            {
+                Console.WriteLine("PRODUCT_ID-" + element.ProductID + "  " + "USER_ID-" + element.UserID + "  " + "RATING-" + element.Rating + "  " + "REVIEW-" + element.Review);
+
+            }
+        }
+
+
     }
 }
