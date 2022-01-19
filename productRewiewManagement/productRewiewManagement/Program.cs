@@ -40,4 +40,5 @@ Management management = new Management();
 //management.Retrive(list);
 //management.Count(list);
 //management.RetrieveProductIDAndReview(list);
-management.Skip(list);
+//management.Skip(list);
+management.CreateDataTable(list);
