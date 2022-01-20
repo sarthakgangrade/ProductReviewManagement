@@ -111,5 +111,16 @@ namespace productRewiewManagement
             var pt = dt.AsEnumerable().Average(e => e.Field<double>("Rating"));
             Console.WriteLine("Rating average::"+pt);
         }
+        public void Reviewisnice(List<ProductReview> list)
+        {
+            var productTable = from products in this.dt.AsEnumerable()
+                               where products.Field<string>("Review")==("nice")
+                               select products;
+            Console.WriteLine("records where review is nice");
+            foreach (DataRow product in productTable)
+            {
+                Console.WriteLine(product.Field<int>("ProductId") + " " + product.Field<int>("UserId") + " " + product.Field<double>("Rating") + " " + product.Field<string>("Review") + " " + product.Field<bool>("isLike"));
+            }
+        }
     }
 }
