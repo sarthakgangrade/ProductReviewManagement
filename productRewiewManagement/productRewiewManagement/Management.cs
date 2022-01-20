@@ -77,11 +77,12 @@ namespace productRewiewManagement
             dt.Columns.Add("Review").DataType = typeof(string);
             dt.Columns.Add("isLike").DataType = typeof(bool);
             DataRow Rows = dt.NewRow();
-            dt.Rows.Add("75", "44", "10", "Excellent", "true");
-            dt.Rows.Add("65", "45", "1", "Poor", "true");
-            dt.Rows.Add("55", "46", "7", "Average", "false");
-            dt.Rows.Add("45", "47", "10", "Excellent", "true");
-            dt.Rows.Add("35", "48", "0", "Poor", "true");
+            dt.Rows.Add("75", "10", "10", "Excellent", "true");
+            dt.Rows.Add("65", "10", "1", "Poor", "true");
+            dt.Rows.Add("55", "10", "7", "Average", "false");
+            dt.Rows.Add("45", "10", "10", "Excellent", "true");
+            dt.Rows.Add("35", "10", "0", "Poor", "true");
+            dt.Rows.Add("115", "10", "0", "Poor", "true");
             foreach (ProductReview item in list)
             {
                 dt.Rows.Add(item.ProductID, item.UserID, item.Rating, item.Review, item.isLike);
@@ -117,6 +118,17 @@ namespace productRewiewManagement
                                where products.Field<string>("Review")==("nice")
                                select products;
             Console.WriteLine("records where review is nice");
+            foreach (DataRow product in productTable)
+            {
+                Console.WriteLine(product.Field<int>("ProductId") + " " + product.Field<int>("UserId") + " " + product.Field<double>("Rating") + " " + product.Field<string>("Review") + " " + product.Field<bool>("isLike"));
+            }
+        }
+        public void UserIDis10(List<ProductReview> list)
+        {
+            var productTable = from products in this.dt.AsEnumerable()
+                               where products.Field<int>("UserID") == (10)
+                               select products;
+            Console.WriteLine("records where UserID is 10");
             foreach (DataRow product in productTable)
             {
                 Console.WriteLine(product.Field<int>("ProductId") + " " + product.Field<int>("UserId") + " " + product.Field<double>("Rating") + " " + product.Field<string>("Review") + " " + product.Field<bool>("isLike"));
