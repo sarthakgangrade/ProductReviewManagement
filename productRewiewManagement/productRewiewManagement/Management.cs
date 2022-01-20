@@ -71,9 +71,9 @@ namespace productRewiewManagement
         {
 
 
-            dt.Columns.Add("ProductID").DataType = typeof(string);
-            dt.Columns.Add("UserID").DataType = typeof(string);
-            dt.Columns.Add("Rating").DataType = typeof(string);
+            dt.Columns.Add("ProductID").DataType = typeof(int);
+            dt.Columns.Add("UserID").DataType = typeof(int);
+            dt.Columns.Add("Rating").DataType = typeof(double);
             dt.Columns.Add("Review").DataType = typeof(string);
             dt.Columns.Add("isLike").DataType = typeof(bool);
             DataRow Rows = dt.NewRow();
@@ -102,8 +102,14 @@ namespace productRewiewManagement
 
             foreach (DataRow product in productTable)
             {
-                Console.WriteLine(product.Field<string>("ProductId") + " " + product.Field<string>("UserId") + " " + product.Field<string>("Rating") + " " + product.Field<string>("Review") + " " + product.Field<bool>("isLike"));
+                Console.WriteLine(product.Field<int>("ProductId") + " " + product.Field<int>("UserId") + " " + product.Field<double>("Rating") + " " + product.Field<string>("Review") + " " + product.Field<bool>("isLike"));
             }
+        }
+
+        public void AverageRating(List<ProductReview> list)
+        {
+            var pt = dt.AsEnumerable().Average(e => e.Field<double>("Rating"));
+            Console.WriteLine("Rating average::"+pt);
         }
     }
 }
