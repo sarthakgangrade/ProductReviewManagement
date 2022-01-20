@@ -43,3 +43,4 @@ Management management = new Management();
 //management.Skip(list);
 management.CreateDataTable(list);
 management.Islike_true(list);
+management.AverageRating(list);
