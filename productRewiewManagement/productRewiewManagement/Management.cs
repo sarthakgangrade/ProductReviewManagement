@@ -66,16 +66,16 @@ namespace productRewiewManagement
 
             }
         }
-
+        DataTable dt = new DataTable();
         public void CreateDataTable(List<ProductReview> list)
         {
-            DataTable dt = new DataTable();
-            
+
+
             dt.Columns.Add("ProductID").DataType = typeof(string);
             dt.Columns.Add("UserID").DataType = typeof(string);
             dt.Columns.Add("Rating").DataType = typeof(string);
             dt.Columns.Add("Review").DataType = typeof(string);
-            dt.Columns.Add("isLike").DataType = typeof(string);
+            dt.Columns.Add("isLike").DataType = typeof(bool);
             DataRow Rows = dt.NewRow();
             dt.Rows.Add("75", "44", "10", "Excellent", "true");
             dt.Rows.Add("65", "45", "1", "Poor", "true");
@@ -88,12 +88,22 @@ namespace productRewiewManagement
             }
             foreach (DataRow r in dt.Rows)
             {
-                Console.WriteLine("ProductID::"+ r["ProductID"] + " "+ "UserID::" + r["UserID"] + " " + "Rating::" + r["Rating"] + " " + "Review::" + r["Review"] + " " + "isLike::" + r["isLike"]);
+                Console.WriteLine("ProductID::" + r["ProductID"] + " " + "UserID::" + r["UserID"] + " " + "Rating::" + r["Rating"] + " " + "Review::" + r["Review"] + " " + "isLike::" + r["isLike"]);
 
             }
 
         }
+        public void Islike_true(List<ProductReview> list)
+        {
+            
+            var productTable = from products in this.dt.AsEnumerable()
+                               where products.Field<bool>("isLike").Equals(true)
+                               select products;
 
-
+            foreach (DataRow product in productTable)
+            {
+                Console.WriteLine(product.Field<string>("ProductId") + " " + product.Field<string>("UserId") + " " + product.Field<string>("Rating") + " " + product.Field<string>("Review") + " " + product.Field<bool>("isLike"));
+            }
+        }
     }
 }
